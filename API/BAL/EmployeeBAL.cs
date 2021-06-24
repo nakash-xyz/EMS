@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.DAL;
 using API.Domain;
 using API.DTO;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.BAL
 {
@@ -80,6 +82,12 @@ namespace API.BAL
             }
 
             return false;
+        }
+
+        public async Task<List<Employee>> GetAllEmployees()
+        {
+            var employees = await _context.Employees.ToListAsync();
+            return employees;
         }
     }
 }

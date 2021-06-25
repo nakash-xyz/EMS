@@ -1,5 +1,5 @@
 @apiUrl = http://localhost:5000/api
-@token = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2MjQ1NzM2NjksImV4cCI6MTYyNTE3ODQ2OSwiaWF0IjoxNjI0NTczNjY5LCJpc3MiOiJFbXBsb3llZSBNYW5hZ2VtZW50IFN5c3RlbSJ9.HZdKymbhayx_Tx1Thh-4qPC7TH2LjIeGAIz6JWaD96_7XOUGoI_0UEzrU-519zRBeNNi5Pqoe8PqQvZ9j_Zqjw
+@token = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2MjQ2NTk5NzQsImV4cCI6MTYyNDc0NjM3NCwiaWF0IjoxNjI0NjU5OTc0LCJpc3MiOiJFbXBsb3llZSBNYW5hZ2VtZW50IFN5c3RlbSJ9.0ipiIkUxKnV3QrmEEslTphR6OiLjyXyL7rreyU2JuytCj6yHfbMNeO_7yKxmlCo5wI4Z8bjMOYDRuEs6cBlK4g
 
 
 POST {{apiUrl}}/account/login
@@ -22,7 +22,7 @@ Authorization: Bearer {{token}}
 
 ###
 
-GET {{apiUrl}}/employee/4
+GET {{apiUrl}}/employee/1
 Authorization: Bearer {{token}}
 
 ###
@@ -53,5 +53,5 @@ Content-Type: application/json
 
 ###
 
-DELETE  {{apiUrl}}/employee/6
+DELETE  {{apiUrl}}/employee/8
 Authorization: Bearer {{token}}

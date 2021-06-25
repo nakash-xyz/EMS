@@ -34,7 +34,8 @@ namespace API.BAL
             }
             else
             {
-                return Task.FromResult<UserDTO>(null);
+                throw new Exception("Invalid Login");
+                // return Task.FromResult<UserDTO>(null);
             }
 
             var roleClaim = new Claim(ClaimTypes.Role, userRole);
@@ -44,7 +45,7 @@ namespace API.BAL
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Issuer = _configuration["Token:Issuer"],
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = credentials,
                 Subject = new ClaimsIdentity(new Claim[] { roleClaim })
             };

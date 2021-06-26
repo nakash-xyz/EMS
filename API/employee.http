@@ -53,5 +53,5 @@ Content-Type: application/json
 
 ###
 
-DELETE  {{apiUrl}}/employee/8
+DELETE  {{apiUrl}}/employee/15
 Authorization: Bearer {{token}}

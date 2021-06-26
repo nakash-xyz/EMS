@@ -38,6 +38,12 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {
+                options.AddPolicy("SPA", policy => {
+                    policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                                
+                });
+            });
             services.AddControllers();
 
             services.AddDbContext<DataContext>(options =>
@@ -126,6 +132,8 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
+
+            app.UseCors("SPA");
 
             app.UseExceptionHandler(options =>
             {

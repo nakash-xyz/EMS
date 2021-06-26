@@ -1,0 +1,29 @@
+<h4>View Employees</h4>
+<hr><br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <th>{{employee.id}}</th>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.designation}}</td>
+            <td>{{employee.department}}</td>
+            <td>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-primary edit-width" (click)="editEmployee(employee.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

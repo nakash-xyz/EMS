@@ -11,7 +11,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/employee")]
-    [Authorize]
+    // [Authorize]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeBAL _employeeBAL;
@@ -27,7 +27,7 @@ namespace API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeDTO employeeDTO)
         {
             var employee = await _employeeBAL.AddEmployeeAsync(employeeDTO);
@@ -80,7 +80,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<bool> DeleteEmployee(int id)
         {
             return await _employeeBAL.DeleteEmployeeAsync(id);

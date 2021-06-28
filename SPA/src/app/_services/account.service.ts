@@ -44,4 +44,14 @@ export class AccountService {
 
     return '';
   }
+
+  getUserRole(): string {
+    const token = sessionStorage.getItem('token');
+
+    if (token) {
+      return this.jwtHelper.decodeToken(token)?.role!;
+    }
+
+    return '';
+  }
 }

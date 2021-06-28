@@ -27,4 +27,8 @@ export class NavBarComponent implements OnInit {
     return this.accountService.getDisplayName();
   }
 
+  getUserRole(): string {
+    return this.accountService.getUserRole();
+  }
+
 }

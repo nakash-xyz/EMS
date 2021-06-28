@@ -4,6 +4,7 @@ import { LoginComponent } from './_components/account/login/login.component';
 import { AddEmployeeComponent } from './_components/employee/add-employee/add-employee.component';
 import { ViewEmployeesComponent } from './_components/employee/view-employees/view-employees.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { ViewEmployeeResolver } from './_resolvers/view-employee.resolver';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       {
         path: 'view',
         component: ViewEmployeesComponent,
+        resolve: { employees: ViewEmployeeResolver }
       },
     ],
   },

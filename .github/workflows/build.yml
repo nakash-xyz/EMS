@@ -29,4 +29,4 @@ jobs:
       run: npm install
     - name: Build SPA
       working-directory: SPA
-      run: ng build --prod
+      run: CI=false npm run ng build -- --configuration=production

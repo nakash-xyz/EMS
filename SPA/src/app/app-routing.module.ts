@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './_components/account/login/login.component';
 import { AddEmployeeComponent } from './_components/employee/add-employee/add-employee.component';
 import { ViewEmployeesComponent } from './_components/employee/view-employees/view-employees.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'employee',
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'add',

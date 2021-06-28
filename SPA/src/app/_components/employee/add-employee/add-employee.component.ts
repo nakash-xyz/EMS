@@ -21,6 +21,8 @@ export class AddEmployeeComponent implements OnInit {
     'Telecommunications',
   ];
 
+  errors = [];
+
   employeeForm: FormGroup;
   employeeId;
 
@@ -75,18 +77,23 @@ export class AddEmployeeComponent implements OnInit {
     const employee = this.employeeForm.value;
 
     if (this.employeeId) {
-      this.employeeService.updateEmployee(this.employeeId, employee).subscribe(resp => {
-        this.toastrService.success('Employee details updated!')
-        this.router.navigateByUrl('employee/view');
-      });
-    } else {
-      this.employeeService.addEmployee(employee).subscribe(
-        (response) => {
-          this.toastrService.success('Employee added!')
+      this.employeeService.updateEmployee(this.employeeId, employee).subscribe(
+        (resp) => {
+          this.toastrService.success('Employee details updated!');
           this.router.navigateByUrl('employee/view');
         },
         (err) => {
-          console.log(err);
+          this.errors = err.error.errors;
+        }
+      );
+    } else {
+      this.employeeService.addEmployee(employee).subscribe(
+        (response) => {
+          this.toastrService.success('Employee added!');
+          this.router.navigateByUrl('employee/view');
+        },
+        (err) => {
+          this.errors = err.error.errors;
         }
       );
     }

@@ -34,4 +34,14 @@ export class AccountService {
 
     return false;
   }
+
+  getDisplayName(): string {
+    const token = sessionStorage.getItem('token');
+
+    if (token) {
+      return this.jwtHelper.decodeToken(token)?.displayName!;
+    }
+
+    return '';
+  }
 }

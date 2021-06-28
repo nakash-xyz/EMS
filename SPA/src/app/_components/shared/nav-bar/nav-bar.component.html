@@ -16,6 +16,7 @@
             </ul>
         </div>
         <div class="d-flex" *ngIf="isSessionValid()">
+            <div class="nav-link text-white">Welcome {{getDisplayName()}}!</div>
             <button class="btn btn-outline-success" type="button" (click)="logout()"><i class="bi-box-arrow-right me-2"></i>Logout</button>
         </div>
     </div>

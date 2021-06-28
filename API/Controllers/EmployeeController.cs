@@ -80,7 +80,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
-        // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<bool> DeleteEmployee(int id)
         {
             return await _employeeBAL.DeleteEmployeeAsync(id);

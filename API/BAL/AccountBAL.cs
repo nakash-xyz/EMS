@@ -38,7 +38,10 @@ namespace API.BAL
                 // return Task.FromResult<UserDTO>(null);
             }
 
+            var displayName = userRole == "Admin" ? "Alice" : "Bob";
+
             var roleClaim = new Claim(ClaimTypes.Role, userRole);
+            var nameClaim = new Claim("displayName", displayName);
 
             var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
@@ -47,7 +50,7 @@ namespace API.BAL
                 Issuer = _configuration["Token:Issuer"],
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = credentials,
-                Subject = new ClaimsIdentity(new Claim[] { roleClaim })
+                Subject = new ClaimsIdentity(new Claim[] { roleClaim, nameClaim })
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();

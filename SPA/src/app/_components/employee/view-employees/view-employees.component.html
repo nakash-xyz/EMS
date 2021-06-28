@@ -3,7 +3,7 @@
 <div class="alert alert-primary d-flex align-items-center" role="alert" *ngIf="employees.length === 0">
     <i class="bi-info-circle me-4" style="font-size: 40px;"></i>
     <div>
-        No employees available. Please add employees using the above menu.
+        No employees available. Click <a routerLink='/employee/add'>here</a> to add an Employee.
     </div>
 </div>
 <table class="table" *ngIf="employees.length > 0">

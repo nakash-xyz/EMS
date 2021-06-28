@@ -23,4 +23,8 @@ export class NavBarComponent implements OnInit {
     return this.accountService.isSessionValid();
   }
 
+  getDisplayName(): string {
+    return this.accountService.getDisplayName();
+  }
+
 }

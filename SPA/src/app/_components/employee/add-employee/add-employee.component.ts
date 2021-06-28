@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { EmployeeService } from 'src/app/_services/employee.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class AddEmployeeComponent implements OnInit {
     private fb: FormBuilder,
     private employeeService: EmployeeService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService
   ) {
     this.employeeForm = this.initEmployeeForm();
     this.employeeId = this.activatedRoute.snapshot.params['id'];
@@ -74,11 +76,13 @@ export class AddEmployeeComponent implements OnInit {
 
     if (this.employeeId) {
       this.employeeService.updateEmployee(this.employeeId, employee).subscribe(resp => {
+        this.toastrService.success('Employee details updated!')
         this.router.navigateByUrl('employee/view');
       });
     } else {
       this.employeeService.addEmployee(employee).subscribe(
         (response) => {
+          this.toastrService.success('Employee added!')
           this.router.navigateByUrl('employee/view');
         },
         (err) => {

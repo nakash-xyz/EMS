@@ -6,8 +6,8 @@
             <div [formGroup]="employeeForm">
                 <div class="mb-3">
                     <label for="firstName" class="form-label required">First Name</label>
-                    <input type="text" class="form-control" id="firstName" formControlName="firstName" [class.is-invalid]="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.errors">
-                    <div class="invalid-feedback" *ngIf="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.errors">
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" [class.is-invalid]="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.invalid">
+                    <div class="invalid-feedback" *ngIf="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.invalid">
                         <div *ngIf="employeeForm.get('firstName')?.errors?.required">Please enter a first name</div>
                         <div *ngIf="employeeForm.get('firstName')?.errors?.minlength">First Name should be greater than or equal to {{employeeForm.get('firstName')?.errors?.minlength?.requiredLength}} characters</div>
                         <div *ngIf="employeeForm.get('firstName')?.errors?.maxlength">First Name should not exceed {{employeeForm.get('firstName')?.errors?.maxlength?.requiredLength}} characters</div>
@@ -15,8 +15,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="lastName" class="form-label required">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" formControlName="lastName" [class.is-invalid]="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.errors">
-                    <div class="invalid-feedback" *ngIf="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.errors">
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName" [class.is-invalid]="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.invalid">
+                    <div class="invalid-feedback" *ngIf="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.invalid">
                         <div *ngIf="employeeForm.get('lastName')?.errors?.required">Please enter a last name</div>
                         <div *ngIf="employeeForm.get('lastName')?.errors?.minlength">Last Name should be greater than or equal to {{employeeForm.get('lastName')?.errors?.minlength?.requiredLength}} characters</div>
                         <div *ngIf="employeeForm.get('lastName')?.errors?.maxlength">Last Name should not exceed {{employeeForm.get('lastName')?.errors?.maxlength?.requiredLength}} characters</div>
@@ -24,8 +24,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="designation" class="form-label required">Designation</label>
-                    <input type="text" class="form-control" id="designation" formControlName="designation" [class.is-invalid]="employeeForm.get('designation')?.touched && employeeForm.get('designation')?.errors">
-                    <div class="invalid-feedback" *ngIf="employeeForm.get('designation')?.touched && employeeForm.get('designation')?.errors">
+                    <input type="text" class="form-control" id="designation" formControlName="designation" [class.is-invalid]="employeeForm.get('designation')?.touched && employeeForm.get('designation')?.invalid">
+                    <div class="invalid-feedback" *ngIf="employeeForm.get('designation')?.touched && employeeForm.get('designation')?.invalid">
                         <div *ngIf="employeeForm.get('designation')?.errors?.required">Please enter a Designation</div>
                         <div *ngIf="employeeForm.get('designation')?.errors?.minlength">Designation should be greater than or equal to {{employeeForm.get('designation')?.errors?.minlength?.requiredLength}} characters</div>
                         <div *ngIf="employeeForm.get('designation')?.errors?.maxlength">Designation should not exceed {{employeeForm.get('designation')?.errors?.maxlength?.requiredLength}} characters</div>
@@ -33,11 +33,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="department" class="form-label required">Department</label>
-                    <select name="department" id="deparment" class="form-select" formControlName="department" [class.is-invalid]="employeeForm.get('department')?.touched && employeeForm.get('department')?.errors">
+                    <select name="department" id="deparment" class="form-select" formControlName="department" [class.is-invalid]="employeeForm.get('department')?.touched && employeeForm.get('department')?.invalid">
                         <option [ngValue]="null">select</option>
                         <option *ngFor="let deparment of departments" [value]="deparment">{{deparment}}</option>
                     </select>
-                    <div class="invalid-feedback" *ngIf="employeeForm.get('department')?.touched && employeeForm.get('department')?.errors">
+                    <div class="invalid-feedback" *ngIf="employeeForm.get('department')?.touched && employeeForm.get('department')?.invalid">
                         <div *ngIf="employeeForm.get('department')?.errors?.required">Please select a department</div>
                     </div>
                 </div>

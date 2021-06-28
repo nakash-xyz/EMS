@@ -1,6 +1,12 @@
 <h4>View Employees</h4>
 <hr><br>
-<table class="table">
+<div class="alert alert-primary d-flex align-items-center" role="alert" *ngIf="employees.length === 0">
+    <i class="bi-info-circle me-4" style="font-size: 40px;"></i>
+    <div>
+        No employees available. Please add employees using the above menu.
+    </div>
+</div>
+<table class="table" *ngIf="employees.length > 0">
     <thead>
         <tr>
             <th>#</th>
@@ -8,7 +14,7 @@
             <th>Last Name</th>
             <th>Designation</th>
             <th>Department</th>
-            <th>Actions</th>
+            <th class="d-flex justify-content-center">Edit/Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +24,10 @@
             <td>{{employee.lastName}}</td>
             <td>{{employee.designation}}</td>
             <td>{{employee.department}}</td>
-            <td>
+            <td class="d-flex justify-content-center">
                 <div class="btn-group btn-group-sm">
-                    <button class="btn btn-primary edit-width" (click)="editEmployee(employee.id)">Edit</button>
-                    <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+                    <button class="btn btn-primary edit-width" (click)="editEmployee(employee.id)"><i class="bi-pencil me-1"></i></button>
+                    <button class="btn btn-danger" (click)="deleteEmployee(employee.id)"><i class="bi-trash me-1"></i></button>
                 </div>
             </td>
         </tr>

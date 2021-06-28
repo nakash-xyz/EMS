@@ -6,6 +6,10 @@ import { ViewEmployeesComponent } from './_components/employee/view-employees/vi
 
 const routes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
     path: 'employee',
     children: [
       {
@@ -24,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: LoginComponent
+    redirectTo: 'login',
   },
 ];
 

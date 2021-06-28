@@ -1,1 +1,23 @@
-<p>login works!</p>
+<h4>Welcome to Employee Management System - v1.0</h4>
+<hr><br>
+<div class="container">
+    <div class="col-md-4">
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+            <div class="mb-3">
+                <label for="username" class="form-label required">Username</label>
+                <input type="text" class="form-control" id="username" name="username" #usernameRef="ngModel" [(ngModel)]="credentials.username" required [class.is-invalid]="usernameRef?.touched && usernameRef.invalid">
+                <div *ngIf="usernameRef.touched && usernameRef.invalid" class="invalid-feedback">
+                    <div *ngIf="usernameRef.errors?.required">Username is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label required">Password</label>
+                <input type="password" class="form-control" id="password" name="password" #passwordRef="ngModel" [(ngModel)]="credentials.password" required [class.is-invalid]="passwordRef?.touched && passwordRef.invalid">
+                <div *ngIf="passwordRef.touched && passwordRef.invalid" class="invalid-feedback">
+                    <div *ngIf="passwordRef.errors?.required">Password is required</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
+</div>

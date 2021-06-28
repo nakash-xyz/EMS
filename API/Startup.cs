@@ -134,6 +134,7 @@ namespace API
             }
 
             app.UseCors("SPA");
+            app.UseStaticFiles();
 
             app.UseExceptionHandler(options =>
             {
@@ -163,6 +164,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

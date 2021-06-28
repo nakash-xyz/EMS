@@ -23,13 +23,7 @@ namespace API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
             var user = await _accountBAL.Login(loginDTO.Username, loginDTO.Password);
-
-            if (user != null)
-            {
-                return Ok(user);
-            }
-
-            return BadRequest("Invalid login attempt!");
+            return Ok(user);
         }
     }
 }

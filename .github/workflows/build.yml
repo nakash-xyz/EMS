@@ -18,8 +18,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
+      working-directory: API
       run: dotnet restore
     - name: Build API
+      working-directory: API
       run: dotnet build --no-restore
       
     - name: Restore SPA Dependencies

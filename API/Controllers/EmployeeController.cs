@@ -41,6 +41,15 @@ namespace API.Controllers
         }
 
         /// <summary>
+        /// To get all the Employees and their details
+        /// </summary>
+        [HttpGet]
+        public async Task<List<Employee>> GetAllEmployees()
+        {
+            return await _employeeBAL.GetAllEmployees();
+        }
+
+        /// <summary>
         /// To get the Employee detail based on Employee ID
         /// </summary>
         /// <param name="id"></param>
@@ -84,15 +93,6 @@ namespace API.Controllers
         public async Task<bool> DeleteEmployee(int id)
         {
             return await _employeeBAL.DeleteEmployeeAsync(id);
-        }
-
-        /// <summary>
-        /// To delete the Employee data based on Employee ID
-        /// </summary>
-        [HttpGet]
-        public async Task<List<Employee>> GetAllEmployees()
-        {
-            return await _employeeBAL.GetAllEmployees();
         }
     }
 }

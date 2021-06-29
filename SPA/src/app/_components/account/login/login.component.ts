@@ -32,4 +32,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  get AppVersion(): string {
+    return this.accountService.appVersion;
+  }
 }

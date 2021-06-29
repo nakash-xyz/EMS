@@ -12,7 +12,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AccountService {
   apiUrl: string = environment.apiBaseUrl + '/account/';
-  appVersion: string = 'v1.0';
+  appVersion: string = 'v1.1';
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 

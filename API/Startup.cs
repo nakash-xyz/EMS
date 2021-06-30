@@ -62,7 +62,7 @@ namespace API
                 {
                     Title = "Employee Management System API",
                     Version = "v1",
-                    Description = "API's to manage Employees",
+                    Description = "APIs to manage Employees",
                     Contact = new OpenApiContact
                     {
                         Name = "Nakash Sheikh",

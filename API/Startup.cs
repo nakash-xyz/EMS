@@ -38,10 +38,12 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => {
-                options.AddPolicy("SPA", policy => {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("SPA", policy =>
+                {
                     policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
-                                
+
                 });
             });
             services.AddControllers();
@@ -71,6 +73,7 @@ namespace API
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
+
 
                 var securitySchema = new OpenApiSecurityScheme
                 {
@@ -129,8 +132,16 @@ namespace API
             if (env.IsDevelopment())
             {
                 // app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+                app.UseSwagger(c =>
+               {
+                   c.RouteTemplate = "api-docs/{documentName}/swagger.json";
+               });
+
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/api-docs/v1/swagger.json", "Version 1");
+                    c.RoutePrefix = "api-docs";
+                });
             }
 
             app.UseCors("SPA");
